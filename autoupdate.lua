@@ -22,6 +22,19 @@ function autoupdate.PostInitialize()
     moonlight.vars.add(autoupdate.color_g, 0.0, true)
     moonlight.vars.add(autoupdate.color_b, 0.0, true)
     moonlight.vars.add(autoupdate.color_a, 255.0, true)
+	
+	local content, response = moonlight.windows.download("https://raw.githubusercontent.com/Tipomz/AutoUpdate-PoC/main/version.txt")
+	if response ~= 0 then return end
+	
+	local current_version = moonlight.vars.get(autoupdate.version)
+	local upstream_version = tonumber(content)
+	if upstream_version == current_version then return end
+	
+	local content, response = moonlight.windows.download("https://raw.githubusercontent.com/Tipomz/AutoUpdate-PoC/main/autoupdate.lua")
+	if response ~= 0 then return end
+	
+	moonlight.windows.file.write("scripts\\autoupdate.lua", content)
+	moonlight.scripts.reload("scripts\\autoupdate.lua")
 end
 
 function autoupdate.OnEndScene(device)
