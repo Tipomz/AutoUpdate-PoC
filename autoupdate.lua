@@ -11,15 +11,15 @@ local autoupdate = {
 
 function autoupdate.PostInitialize()
 	-- plugin variable and hardcoding version number
-    moonlight.vars.add(autoupdate.name, 1)
+    moonlight.vars.add(autoupdate.name, 2)
     moonlight.vars.add(autoupdate.version, 1, false, true)
 	
 	-- create font
 	moonlight.vars.add(autoupdate.font, moonlight.visuals.add_font("Consolas", 8))
 	
 	-- create color
-    moonlight.vars.add(autoupdate.color_r, 255.0, true)
-    moonlight.vars.add(autoupdate.color_g, 0.0, true)
+    moonlight.vars.add(autoupdate.color_r, 0.0, true)
+    moonlight.vars.add(autoupdate.color_g, 255.0, true)
     moonlight.vars.add(autoupdate.color_b, 0.0, true)
     moonlight.vars.add(autoupdate.color_a, 255.0, true)
 	
