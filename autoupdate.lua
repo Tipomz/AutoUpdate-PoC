@@ -43,8 +43,8 @@ function autoupdate.PostInitialize()
     -- write new version of plugin on top of current version
     moonlight.windows.file.write("scripts\\autoupdate.lua", content)
 	
-	-- get script path
-	local script_path = moonlight.vars.get("directory") .. "\\moonlight\\scripts\\autoupdate.lua"
+    -- get script path
+    local script_path = moonlight.vars.get("directory") .. "\\moonlight\\scripts\\autoupdate.lua"
     -- reload new version
     moonlight.scripts.reload(script_path)
 end
